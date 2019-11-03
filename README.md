@@ -66,6 +66,22 @@ On the image below, comparison when using different iteration parameter is shown
 
 ![Imgur Image](https://i.imgur.com/1neSkZu.png)
 
+### Execution time
+
+Execution time is depending on the number of iterations and the size of the image. On smaller images, execution time on the client is faster than by using servers. Example below:
+```
+max_n = 1024, image size = 2000x2000
+3. 229.246000051 seconds #client only
+4. 247.770999908 seconds #client with sub-images
+5. 423.139000177 seconds #servers single thread
+6. 248.412000179 seconds #servers multiple threads
+```
+Image generated from (6.):
+
+![Imgur Image](https://i.imgur.com/vz8JSiW.png)
+
+As the image size and iterations increases, the amount of work also grows. After each function execution time is calculated so that it can be used for comparison.
+
 License
 ----
 
