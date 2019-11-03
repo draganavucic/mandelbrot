@@ -20,7 +20,7 @@ MAX_C_IM = 2.0
 # Divisions - width/height for sub-pictures
 DIV = 4
 # List of servers
-SERVER_LIST = ['127.0.0.1:1111', '127.0.0.1:2222', '127.0.0.1:3333', '127.0.0.1:4444', '127.0.0.1:5555', '127.0.0.1:6666']
+SERVER_LIST = ['127.0.0.1:1111', '127.0.0.1:2222', '127.0.0.1:3333', '127.0.0.1:4444']
 
 # Welcome line :)
 print '--- Welcome to Mandelbrot Set | Dragana Vucic 2019 ---\n'
