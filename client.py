@@ -86,7 +86,7 @@ def generate_image_on_client_from_sub_pictures():
     """
     # collecting starting points for sub-pictures
     start_points = collect_starting_points()
-    # merge all sub-picutre colors into one list
+    # merge all sub-picture colors into one list
     start_point_colors = []
     for point in start_points:
         start_point_colors.append(calculate_colors_for_sub_picture(point[0], point[1]))
@@ -166,7 +166,7 @@ def generate_image_from_servers_sub_pictures_multi_threaded():
     except KeyboardInterrupt:
         print 'KeyboardInterrupt'
         quit()
-    # after completition, drawing the image
+    # after completion, drawing the image
     draw_image_from_start_point_color_list(async_colors_list, 'servers_sub_pics_multi_threaded.png')
 
 def draw_image_from_start_point_color_list(start_point_colors, name):
@@ -277,14 +277,14 @@ def update_parameters():
     """Updating data/parameters used in calculations"""
     print '\nEnter each parameter in another line:\n'
     global MAX_N, WIDTH, HEIGHT, MIN_C_RE, MAX_C_RE, MIN_C_IM, MAX_C_IM, DIV, SERVER_LIST
-    # MAX_N = validate_positive_integer('Maximum number of iterations [MAX_N]: ')
-    # WIDTH = validate_positive_integer('Image width in pixels [WIDTH]: ')
-    # HEIGHT = validate_positive_integer('Image height in pixels [height]: ')
-    # MIN_C_RE = validate_plot_value('Minimal real number for the plot [MIN_C_RE]: ')
-    # MAX_C_RE = validate_plot_value('Maximal real number for the plot [MAX_C_RE]: ')
-    # MIN_C_IM = validate_plot_value('Minimal imaginary number for the plot [MIN_C_IM]: ')
-    # MAX_C_IM = validate_plot_value('Maximal imaginary number for the plot [MAX_C_IM]: ')
-    # DIV = validate_division('Dimensions of sub-pictures in pixels [DIV]: ')
+    MAX_N = validate_positive_integer('Maximum number of iterations [MAX_N]: ')
+    WIDTH = validate_positive_integer('Image width in pixels [WIDTH]: ')
+    HEIGHT = validate_positive_integer('Image height in pixels [height]: ')
+    MIN_C_RE = validate_plot_value('Minimal real number for the plot [MIN_C_RE]: ')
+    MAX_C_RE = validate_plot_value('Maximal real number for the plot [MAX_C_RE]: ')
+    MIN_C_IM = validate_plot_value('Minimal imaginary number for the plot [MIN_C_IM]: ')
+    MAX_C_IM = validate_plot_value('Maximal imaginary number for the plot [MAX_C_IM]: ')
+    DIV = validate_division('Dimensions of sub-pictures in pixels [DIV]: ')
     list_of_servers = validate_ip_addresses()
     if not list_of_servers:
         print 'Entered server list is empty. Default one will be used.'

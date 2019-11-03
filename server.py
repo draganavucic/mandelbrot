@@ -10,7 +10,7 @@ def mandelbrot(z_0, max_n):
     """
     Computing the Mandelbrot iteration sequence starting at z_0
     :param z_0: complex
-    :param max_n: maximal number of interations
+    :param max_n: maximal number of iterations
     :return: the number of iterations for which the magnitude stays less than 2, up to the 255
     """
     z_n = z_0
