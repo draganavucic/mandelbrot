@@ -76,11 +76,11 @@ max_n = 1024, image size = 2000x2000
 5. 423.139000177 seconds #servers single thread
 6. 248.412000179 seconds #servers multiple threads
 ```
-Image generated from (6.):
+As the image size and iterations increases, the amount of work also grows. After each function execution time is calculated so that it can be used for comparison.
+
+The image generated from (6.) is shown below. TIP: Open it and zoom it :)
 
 ![Imgur Image](https://i.imgur.com/vz8JSiW.png)
-
-As the image size and iterations increases, the amount of work also grows. After each function execution time is calculated so that it can be used for comparison.
 
 License
 ----
