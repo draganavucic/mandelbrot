@@ -23,7 +23,7 @@ DIV = 4
 SERVER_LIST = ['127.0.0.1:1111', '127.0.0.1:2222', '127.0.0.1:3333', '127.0.0.1:4444', '127.0.0.1:5555', '127.0.0.1:6666']
 
 # Welcome line :)
-print '--- Welcome to Mandelbrot Set | Python 2.17.7 ---\n'
+print '--- Welcome to Mandelbrot Set | Dragana Vucic 2019 ---\n'
 
 def mandelbrot(z_0):
     """
