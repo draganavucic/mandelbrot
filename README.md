@@ -78,7 +78,7 @@ max_n = 1024, image size = 2000x2000
 ```
 As the image size and iterations increases, the amount of work also grows. After each function execution time is calculated so that it can be used for comparison.
 
-The image generated from (6.) is shown below. TIP: Open it and zoom it :)
+The image generated from (6.) is shown below. TIP: Open it and zoom it :mag: :eyes:
 
 ![Imgur Image](https://i.imgur.com/vz8JSiW.png)
 
