@@ -1,18 +1,18 @@
 # mandelbrot
 Client/Server python scripts for mandelbrot set calculations.
 
-Client script can generate image on multiple ways:
-1. Localy, by using mandelbrot functions
-2. Localy, by extracting starting points of sub-images and calculating each sub-image color values
+Client script can generate an image in multiple ways:
+1. Locally, by using mandelbrot functions
+2. Locally, by extracting starting points of sub-images and calculating each sub-image color values
 3. By sending starting points of sub-images to multiple servers (where each server calculates color values for assigned sub-images)
 4. The same as 3. just by using multiple threads to distribute data to defined servers
 
 ## Server script
 
 - Created using standard python libraries and *BaseHTTPRequestHandler* and *HTTPServer* from *BaseHTTPServer*
-- Starting localhost server with a port defined as an argument. Example: `server.py 8080`
-- Function `serve_forever()` makes the server to always run
-- After running the server on specified port the output is following:
+- Starting a server with a port defined as an argument. Example: `server.py 8080`
+- Function `serve_forever()`  keeps the server running
+- After running the server on the specified port the output is the following:
   ```
   HTTP server is starting on port 1111...
   HTTP server is running...
@@ -50,15 +50,15 @@ Enter menu number to continue:
 ### Menu choices
 
 1. Updating of the parameters used for calculations:
-    - Iterations, width, height, div must be integers greater then 0
-    - Div must be divisible with width/height of the image, as it represents the size of the sub-images
+    - Iterations, width, height, div must be integers greater than 0
+    - Div must be divisible with the width/height of the image, as it represents the size of the sub-images
     - Plot parameters must be in the range [-2, 2]
-    - List of servers has to contain valid ip addresses and port numbers
-2. Prints output from the mandelbrot function. #for debugging and better understanding
-3. Generation of the image on the client side only. #for debugging and comparison
-4. The job that should be done through servers is done here on client side. #for debugging and comparison
-5. In single thread sends the data to defined servers and collects the data retreived. Image is generated after all servers are finished.
-6. Using multiple threads distributes the data to defined servers and collects the data retreived. Image is generated after all servers are finished.
+    - List of servers has to contain valid IP addresses and port numbers
+2. Prints raw output from the mandelbrot function. #for debugging and better understanding
+3. Generate the image on the client-side only. #for debugging and comparison
+4. The job that should be done on the server-side is done on the client-side. #for debugging and comparison
+5. Single thread sends the data to defined servers and collects results. The image is generated after all requests are completed.
+6. Use multiple threads to distributes the data to defined servers and connect results. The image is generated after all requests are completed.
 
 ### Parameters
 
@@ -70,5 +70,3 @@ License
 ----
 
 © 2019 Dragana Vučić
-
-**Contact or feedback on: dragana.vucic@live.com**
