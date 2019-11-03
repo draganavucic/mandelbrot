@@ -8,7 +8,7 @@ from Queue import Queue
 from PIL import Image, ImageDraw
 
 # Iterations
-MAX_N = 64
+MAX_N = 256
 # Size of the image
 WIDTH = 1024
 HEIGHT = 1024
@@ -20,7 +20,7 @@ MAX_C_IM = 2.0
 # Divisions - width/height for sub-pictures
 DIV = 4
 # List of servers
-SERVER_LIST = ['127.0.0.1:1111', '127.0.0.1:2222', '127.0.0.1:3333']
+SERVER_LIST = ['127.0.0.1:1111', '127.0.0.1:2222', '127.0.0.1:3333', '127.0.0.1:4444', '127.0.0.1:5555', '127.0.0.1:6666']
 
 # Welcome line :)
 print '--- Welcome to Mandelbrot Set | Python 2.17.7 ---\n'
@@ -31,12 +31,12 @@ def mandelbrot(z_0):
     :param z_0: complex
     :return: the number of iterations for which the magnitude stays less than 2, up to the 255
     """
-    z_n = z_0
-    for itr in range(MAX_N):
-        if abs(z_n) > 2.0:
-            return itr
+    z_n = 0
+    itr = 0
+    while abs(z_n) <= 2 and itr < MAX_N:
         z_n = z_n * z_n + z_0
-    return 255
+        itr += 1
+    return itr
 
 def generate_image_on_client_using_mandelbrot():
     """#Debug: Generating image on client only"""
@@ -48,7 +48,7 @@ def generate_image_on_client_using_mandelbrot():
         c_y = y * (MAX_C_IM - MIN_C_IM) / (HEIGHT - 1)  + MIN_C_IM
         for x in range(WIDTH):
             c_x = x * (MAX_C_RE - MIN_C_RE) / (WIDTH - 1) + MIN_C_RE
-            color = 255 - mandelbrot(complex(c_x, c_y))
+            color = 255 - int(mandelbrot(complex(c_x, c_y)) * 255 / MAX_N)
             draw.point([x, y], (color, color, color))
     # saving image in a file
     image.save('client_mandelbrot.png', 'PNG')
@@ -75,7 +75,7 @@ def calculate_colors_for_sub_picture(sp_x, sp_y):
         c_y = j * (MAX_C_IM - MIN_C_IM) / (HEIGHT - 1)  + MIN_C_IM
         for i in range(sp_x, sp_x + DIV):
             c_x = i * (MAX_C_RE - MIN_C_RE) / (WIDTH - 1) + MIN_C_RE
-            color = 255 - mandelbrot(complex(c_x, c_y))
+            color = 255 - int(mandelbrot(complex(c_x, c_y)) * 255 / MAX_N)
             colors_list.append(color)
     return colors_list
 

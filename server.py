@@ -13,12 +13,12 @@ def mandelbrot(z_0, max_n):
     :param max_n: maximal number of iterations
     :return: the number of iterations for which the magnitude stays less than 2, up to the 255
     """
-    z_n = z_0
-    for itr in range(max_n):
-        if abs(z_n) > 2.0:
-            return itr
+    z_n = 0
+    itr = 0
+    while abs(z_n) <= 2 and itr < max_n:
         z_n = z_n * z_n + z_0
-    return 255
+        itr += 1
+    return itr
 
 def calculate_colors_for_sub_picture(path):
     """
@@ -29,7 +29,7 @@ def calculate_colors_for_sub_picture(path):
     # getting parameters from path
     params = path.split('/')
     # taking values of parameters
-    # max_n = int(params[0])
+    max_n = int(params[0])
     # width, height = int(params[1]), int(params[2])
     min_c_re, max_c_re = float(params[3]), float(params[4])
     min_c_im, max_c_im = float(params[5]), float(params[6])
@@ -41,7 +41,7 @@ def calculate_colors_for_sub_picture(path):
         c_y = j * (max_c_im - min_c_im) / (int(params[2]) - 1)  + min_c_im
         for i in range(sp_x, sp_x + div):
             c_x = i * (max_c_re - min_c_re) / (int(params[1]) - 1) + min_c_re
-            color = 255 - mandelbrot(complex(c_x, c_y), int(params[0]))
+            color = 255 - int(mandelbrot(complex(c_x, c_y), max_n) * 255 / max_n)
             colors_list.append(color)
     # returning the list for sub-picture
     return colors_list
