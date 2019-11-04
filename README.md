@@ -82,6 +82,12 @@ The image generated from (6.) is shown below. TIP: Open it and zoom it :mag: :ey
 
 ![Imgur Image](https://i.imgur.com/vz8JSiW.png)
 
+### Running with multiple servers
+
+On the image below, running on 4 different servers with multiple threads is shown:
+
+![Imgur Image](https://i.imgur.com/BPLSeLp.png)
+
 License
 ----
 
